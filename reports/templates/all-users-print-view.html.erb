@@ -31,7 +31,7 @@
 	  if this hasn't been initialized then show all of the questions.%>
       <% if $reportQuestionFlags.objects.size > index
 			 otBool = $reportQuestionFlags.objects.get(index)
-			 next if (otBool && otBool.value)
+			 next if (otBool && (!otBool.value))
 		 end
 		 reportIndex = index + 1
       %> 
