@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<otrunk id="5F8E084C-6F3B-4B33-8DA8-5DA640A1E454">
+  <imports>
+    <import class="org.concord.framework.otrunk.view.OTFrame" />
+    <import class="org.concord.framework.otrunk.wrapper.OTBlob" />
+    <import class="org.concord.otrunk.OTInclude" />
+    <import class="org.concord.otrunk.OTIncludeRootObject" />
+    <import class="org.concord.otrunk.OTSystem" />
+    <import class="org.concord.otrunk.script.jruby.OTJRuby" />
+    <import class="org.concord.otrunk.script.OTScriptEngineBundle" />
+    <import class="org.concord.otrunk.script.OTScriptEngineEntry" />
+    <import class="org.concord.otrunk.script.ui.OTXHTMLScriptViewEntry" />
+    <import class="org.concord.otrunk.script.ui.OTScriptVariable" />
+    <import class="org.concord.otrunk.ui.OTText"/>
+    <import class="org.concord.otrunk.view.OTViewBundle" />
+    <import class="org.concord.otrunk.view.OTViewMode" />
+    <import class="org.concord.otrunk.view.OTViewEntry" />
+    <import class="org.concord.otrunk.view.OTMultiUserRoot" />
+    <import class="org.concord.otrunk.view.document.OTCssText" />
+    <import class="org.concord.otrunk.view.document.OTDocumentViewConfig" />
+  </imports>
+  <objects>
+    <OTSystem local_id="system">
+      <includes>
+        <OTInclude href="full-report.otml" />
+      </includes>
+      <bundles>
+        <object refid="32AC0483-9C9E-478D-A85E-4B6A2B957E2D"/>
+        <object refid="169E0E93-A9AE-4C10-A4FA-2F368B41CA92"/>
+      </bundles>
+      <root>
+        <OTMultiUserRoot local_id="multi_user_root"
+            reportTemplateViewEntry="4241CB93-84DF-49DA-B614-CA482CABF68B">
+          <userList>
+            <!--
+              The local_id is so this can be used as a report template in the DIY
+            -->
+            <OTIncludeRootObject local_id="external_user_list_url"
+                href="http://ri-itest.diy.concord.org/external_otrunk_activities/19/ot_learner_data.xml?users=464,455" />
+          </userList>
+          <reportTemplate>
+            <OTIncludeRootObject local_id="external_activity_url"
+                href="../activities/diffusion-active-trans/diffusion-active-trans-v1.otml" />
+          </reportTemplate>
+        </OTMultiUserRoot>
+      </root>
+    </OTSystem>
+  </objects>
+</otrunk>

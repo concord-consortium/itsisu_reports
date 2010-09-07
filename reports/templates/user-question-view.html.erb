@@ -1,0 +1,62 @@
+<%
+  reportMode =  $model.is_a?(OTUser) ? 'full' : 'student'
+  user = reportMode == 'full' ? $model : users[0]
+%>
+
+
+<% unless $printing || reportMode == 'student' %>
+  <div class="menu">
+    <table>
+      <tr>
+        <td>
+          <div class="menu_item">
+            <%= linkToMainReport "Activity Summary" %>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <hr />
+<% end %>
+
+<div id="content">
+  <h1><%= sysProp("report.activity.name", "Undefined Activity Name") %></h1>
+  <h2><%= user.name %></h2>
+  Teacher: <%= sysProp("report.teacher.name", "Undefined Teacher Name") %><br/>
+  Class: <%= sysProp("report.class.name", "Undefined Class Name") %><br/>
+
+  Other Group Members: <%= otherUserList(user) %><br/>
+
+  <% unless $printing %>
+    <%= embedObject $printButton %>
+    <% if false %>
+      <%= embedObject $allUsersPdfButton %>
+    <% end %>
+  <% end %>
+
+  <% activityQuestions().each_with_index do |question,index| %>
+	  <%# get the question flag to see if it should be in the report we assume this has 
+	     if this hasn't been initialized then show all of the questions.%>
+      <% if $reportQuestionFlags.objects.size > index
+			 otBool = $reportQuestionFlags.objects.get(index)
+			 next if (otBool && (!otBool.value))
+		   end
+		   reportIndex = index + 1
+      %> 
+
+     <div style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14; font-weight:bold"><%= "#{reportIndex.to_s} #{sectionFor(question)}" %></div>  
+     <div style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12"><%= basicQuestionAnswerHtml( question[:object], user, false )%></div>
+  	<br/>
+  <% end %>        
+  
+  
+  
+</div>
+
+<% if $printing %>
+<script language="JavaScript">
+<!--
+if (window.print) window.print();
+//-->
+</script>
+<% end %>

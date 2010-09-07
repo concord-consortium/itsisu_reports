@@ -1,0 +1,94 @@
+<%
+  filteredUsers = users.select do |user|
+    ratio = completionRatio(user)
+    pct = $minCompletionText.text.to_f
+    ratio >= pct
+  end
+%>
+
+<div id="content">
+  <h1><%= sysProp("report.activity.name", "Undefined Activity Name") %></h1>
+  Teacher: <%= sysProp("report.teacher.name", "Undefined Teacher Name") %><br/>
+  Class: <%= sysProp("report.class.name", "Undefined Class Name") %><br/>
+
+  <p>
+    Show students who completed at least
+    <%= embedObject($minCompletionText) %>%
+    <%= embedObject($filterButton) %>
+  </p>
+  
+  <p>
+    <%= embedObject $allUsersPrintButton %>
+    <% if false %>
+      <%= embedObject $allUsersPdfButton %>
+    <% end %>
+  </p>
+
+  <% questions = activityQuestions() %>
+
+    <table>
+      <tr>
+        <th>User</th>
+        <% questions.each_with_index do |question,index| %>
+          <% reportIndex = index +1 %>
+          <th>
+            <%= question[:section] %>
+            <!-- %= popupLinkToObject reportIndex.to_s()+". "+truncate(sectionFor(question) || "huh?", 30), question, $questionView % -->
+          </th>  
+        <% end %>
+        <th>User</th>
+      </tr>
+      <tr valign="top">
+        <td></td>
+        <% questions.each do |question| %>
+          <td>
+            <nobr>
+              <%= popupLinkToObject '<img src="images/chart-bar.png" border="0" hspace="4"/>', question, $questionReportView %>
+              <% if isChoiceQuestion(question) %>
+                <%= '%.0f' % correctUsersPercent(question, filteredUsers) %>%
+              <% end %>
+            </nobr>
+          </td>
+        <% end %>
+      </tr>
+      <tr>
+       <th>Report</th>
+       <% questions.each_with_index do |question,index| %>
+         <td style="text-align: center">
+           <%
+             otBool = nil
+             if $reportQuestionFlags.objects.size <= index
+               otBool = otCreate(org.concord.framework.otrunk.wrapper.OTBoolean){}
+               otBool.value = true
+               $reportQuestionFlags.objects.add(otBool)
+             else
+               otBool = $reportQuestionFlags.objects.get(index)
+             end
+           %>
+           <%= embedObject(otBool, $report_question_boolean_icon_view) %>
+         </td>
+       <% end %>
+       <th>Report</th>
+      </tr>
+      <% line_toggle = true %>
+      <% filteredUsers.each do |user| %>
+        <tr BGCOLOR = <%= line_toggle ? ROWCOLOR1 : ROWCOLOR2 %>  cellpadding="10">
+          <% line_toggle = !line_toggle %>
+          <td valign="top"><%= linkToObject user.name, user, $userQuestionView %><br/>
+              <%= otherUserList(user) %><br/>
+              <%= '%.0f' % completionRatio(user) %>%
+          </td>
+          <% questions.each do |question| %>
+            <td valign="top">
+              <%= basicQuestionAnswerHtml question[:object], user %> 
+            </td>  
+          <% end %> 
+          <td valign="top"><%= linkToObject user.name, user, $userQuestionView %><br/>
+              <%= otherUserList(user) %>
+          </td>
+        </tr>
+      <% end %>    
+    </table>
+    <hr/>
+    Side by Side Print Format: <%= embedObject($reportPrintTable, $report_question_boolean_icon_view) %>  
+</div>

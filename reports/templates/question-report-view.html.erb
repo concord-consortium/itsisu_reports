@@ -1,0 +1,45 @@
+<% 
+  question = $model
+  color1 = '#f0f0d0'
+  color2 = '#f0e0b0'
+  filteredUsers = users.select do |user|
+    ratio = completionRatio(user)
+    pct = $minCompletionText.text.to_f
+    ratio >= pct
+  end
+  correctAnswers = correctAnswers(question)
+%>
+
+<h3>Question</h3>
+
+<% if isChoiceQuestion(question) %>
+  <%= plainPromptText(question) %><br/>
+  <ol>
+    <% question.input.choices.each do |choice| %>
+      <% if !correctAnswers.empty? && correctAnswers.include?(choice) %>
+        <li style="color: #00cc44"><%= toPlainText(choice) %></li>
+      <% else %>
+        <li><%= toPlainText(choice) %></li>
+      <% end %>
+    <% end %>
+  </ol>
+<% else %>
+  <%= plainPromptText(question) %>
+<% end %>
+
+<% if isChoiceQuestion(question) %>
+  <h3>Frequency Graph</h3>
+  <%= multipleChoiceUsersBarGraph(question, filteredUsers) %>
+<% end %>
+
+<h3>Answers</h3>
+
+<table>
+  <% toggle = Toggler.new(color1, color2) %>
+  <% filteredUsers.each do |user| %>
+    <tr bgcolor="<%= toggle.next %>">
+      <td><%= user.name %></td>
+      <td><%= questionAnswerHtmlWithCopySearch(question, user, false) %></td>
+    </tr>
+  <% end %>
+</table>
