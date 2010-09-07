@@ -221,27 +221,14 @@ def activityQuestions
 end
 
 def findSection(local_id)
-#  puts $sectionMap
-#  puts $sectionMap.entries
-#  puts "-#{local_id}-"
-#  
-#  puts $sectionMap.entries.getObject(local_id)
-#  $sectionMap.entries.objectKeys.each do |k|
-#    puts "key:-#{k}-"
-#  end
-#  $sectionMap.entries.getObject(local_id).to_s
-  def createOTString(string) 
-    # return otCreate(OTString) { |s| s.string = string }
-    return string
-  end
   
-  intro_s      = createOTString("introduction")
-  career_s     = createOTString("career stem")
-  proced_s     = createOTString("procedure")
-  prediction_s = createOTString("prediction")
-  collect1_s   = createOTString("collect (1)")
-  collect2_s   = createOTString("collect (2)")
-  collect3_s   = createOTString("collect (3)")
+  intro_s      = "introduction"
+  career_s     = "career stem"
+  proced_s     = "procedure"
+  prediction_s = "prediction"
+  collect1_s   = "collect (1)"
+  collect2_s   = "collect (2)"
+  collect3_s   = "collect (3)"
   
   map = {
     "to_id_5"      => intro_s,
@@ -275,7 +262,6 @@ end
 
 def otherUserList(user)
   root = activityRoot()
-   
    if root.is_a? org.concord.otrunkmw.OTModelerPage
      # there is no user list in this case, this is an very old style activity
      return ""
