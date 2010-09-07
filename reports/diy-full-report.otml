@@ -88,76 +88,6 @@
         </OTMultiUserRoot>
       </root>
       <library>
-        <OTString name="intro" string="intro_s" />
-        <OTString name="career stem 1" string="career_s" />
-        <OTString name="procedure" string="proced_s" />
-        <OTString name="prediction" string="prediction_s" />
-        <OTString name="collect 1" string="collect1_s" />
-        <OTString name="collect 2" string="collect2_s" />
-        <OTString name="collect 3" string="collect2_s" />
-        <OTString name="analysis" string="analysis_s" />
-        <OTString name="conclusion" string="conclusion_s" />
-        <OTString name="further Investigation" string="further_s" />
-        <OTString name="conclusion" string="conclusion_s" />
-        <!--  map referenced objects to their section names -->
-        <OTHash local_id="section_map">
-          <entries>
-            <entry key="to_id_5">
-              <null />
-            </entry>
-            <entry key="draw_id_6">
-              <null />
-            </entry>
-            <entry key="to_id_career">
-              <null />
-            </entry>
-            <entry key="to_id_4">
-              <null />
-            </entry>
-            <entry key="draw_id_1">
-              <null />
-            </entry>
-            <entry key="to_id_1">
-              <null />
-            </entry>
-            <entry key="draw_id_7">
-              <null />
-            </entry>
-            <entry key="predict_id_1">
-              <null />
-            </entry>
-            <entry key="dc_id_1">
-              <null />
-            </entry>
-            <entry key="to_id_6">
-              <null />
-            </entry>
-            <entry key="draw_id_2">
-              <null />
-            </entry>
-            <entry key="predict_id_2">
-              <null />
-            </entry>
-            <entry key="dc_id_2">
-              <null />
-            </entry>
-            <entry key="to_id_8">
-              <null />
-            </entry>
-            <entry key="draw_id_3">
-              <null />
-            </entry>
-            <entry key="dc_id_3">
-              <null />
-            </entry>
-            <entry key="to_id_9">
-              <null />
-            </entry>
-            <entry key="draw_id_4">
-              <null />
-            </entry>
-          </entries>
-        </OTHash>
         <OTXHTMLScriptViewEntry local_id="template_report_view" objectClass="org.concord.framework.otrunk.OTObject" viewClass="org.concord.otrunk.script.ui.OTXHTMLScriptView">
           <script>
             <OTJRuby local_id="erb_controller" src="scripts/erb-template-runner.rb" />
@@ -247,13 +177,6 @@
               <reference>
                 <OTObjectSet>
                   <objects>
-                    <object refid="17e58387-baad-11df-a054-ada1faa97296" />
-                    <object refid="17e5d1a8-baad-11df-a054-ada1faa97296" />
-                    <object refid="17e5d1a9-baad-11df-a054-ada1faa97296" />
-                    <object refid="17e5d1aa-baad-11df-a054-ada1faa97296" />
-                    <object refid="17e5f8bb-baad-11df-a054-ada1faa97296" />
-                    <object refid="17e5f8bc-baad-11df-a054-ada1faa97296" />
-                    <object refid="17e5f8bd-baad-11df-a054-ada1faa97296" />
                   </objects>
                 </OTObjectSet>
               </reference>
