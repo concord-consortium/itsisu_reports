@@ -229,6 +229,9 @@ def findSection(local_id)
   collect1_s   = "collect (1)"
   collect2_s   = "collect (2)"
   collect3_s   = "collect (3)"
+  analysis_s   = "Analysis"
+  conclusion_s = "Conclusion"
+  further_s    = "Further Inv."
   
   map = {
     "to_id_5"      => intro_s,
@@ -252,9 +255,20 @@ def findSection(local_id)
     "to_id_8"      => collect2_s,
     "draw_id_3"    => collect2_s,
      
-    "dc_id_3"   => collect3_s,
-    "to_id_9"   => collect3_s,
-    "draw_id_4" => collect3_s
+    "dc_id_3"      => collect3_s,
+    "to_id_9"      => collect3_s,
+    "draw_id_4"    => collect3_s,
+    
+    "to_id_2"      => analysis_s,
+    "draw_id_8"    => analysis_s,
+    
+    "to_id_3"      => conclusion_s,
+    "draw_id_9"    => conclusion_s,
+    
+    "dc_id_4"      => further_s,
+    "to_id_7"      => further_s,
+    "draw_id_5"    => further_s
+
   }
   puts map[local_id]
   return map[local_id]
