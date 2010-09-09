@@ -25,8 +25,8 @@
   </p>
 
   <% questions = activityQuestions() %>
-
-    <table>
+  <% table_size = (questions.size + 2) * 200 %>
+    <table width="<%=table_size%>" style="width: <%=table_size%>px;">
       <tr>
         <th>User</th>
         <% questions.each_with_index do |question,index| %>
