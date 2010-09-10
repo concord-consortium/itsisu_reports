@@ -41,7 +41,6 @@ def objectIdStr(obj)
 end
 
 def embedObject(obj, viewEntry=nil)
-  puts obj
   return if obj.nil?
   tag = "<object refid=\"#{ objectIdStr(obj) }\" "
   tag += "viewid=\"#{ objectIdStr(viewEntry) }\" "  if viewEntry
@@ -78,9 +77,6 @@ def embedUserObject(obj, user)
 end
 
 def hasUserModified(obj, user)
-  puts "user #{user}"
-  puts "object #{obj}"
-  puts "otrunk #{@otrunk}"
   @otrunk.hasUserModified(obj, user)
 end
 
@@ -115,7 +111,6 @@ def parseBodyText
      :id => id.strip,
      :local_id => local_id.strip
     }
-    puts "--- #{result[:id]}"
     results << result
   end
   return results
@@ -184,10 +179,7 @@ def activityQuestions
   questions = questions.select do |i| 
     i.kind_of? OTQuestion 
   end
-  puts "question size: #{questions.size}"
   return questions.map do |q|
-    puts "question #{q.globalId}"
-    q.input.choices.each { |c| puts "puts choice #{c.globalId}" }
     {
       :object  => q,
       :section => embedObject(q.prompt)  
@@ -245,7 +237,6 @@ def findSection(local_id)
     "draw_id_5"    => further_s
 
   }
-  puts map[local_id]
   return map[local_id]
 end
 
@@ -306,7 +297,6 @@ end
 
 # this takes a userQuestion
 def questionAnswer(question, user=nil, short=true)
-  puts question
   type = getQuestionType(question)
   answer = 'No Answer'
   case type
@@ -405,9 +395,7 @@ end
 def getUsersSdsWorkgroupId(user)
   sdsId = nil
   dbUrl = user.getOTObjectService().getMainDb().getContextURL()
-  # $stderr.puts "db url: #{dbUrl.to_s}"
   if dbUrl.to_s =~ /workgroups\/([0-9]+)\/ot_learner_data/
-    # $stderr.puts "db url matched! #{$1}"
     sdsId = $1
   end
   return sdsId
@@ -434,14 +422,12 @@ def getAnswerElem(question, index, user)
       doImageAnswerElem(elem, question)
   else
     elem.text = 'UNKNOWN'
-    STDERR.puts("getAnswerElem: Unknown question type!")
   end
   elem
 end
 
 def doChoiceAnswerElem(answerElem, question)
   currentChoices = getCurrentChoices(question.input)
-  #puts "CURRENTCHOICES=#{currentChoices.inspect}"
   if currentChoices.size == 0
     answerElem.text = 'NO_ANSWER'
     return
@@ -556,7 +542,6 @@ def getImageBlobUrl(image)
     if blob.nil?
       return nil
     else
-      puts 'blob class=' + blob.java_class.to_s
       url = blob.getBlobURL
       if url.nil?
         return nil
