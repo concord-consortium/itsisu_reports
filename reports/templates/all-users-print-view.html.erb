@@ -1,4 +1,4 @@
-<lldiv id="content">
+<div id="content">
   <% question_list = activityQuestions() %> 
   <% 
     user_list = users.select do |user|
@@ -26,42 +26,41 @@
       <% line_toggle = true %>
     <% end %>
       
-    <% question_list.each_with_index do |question, index| %>
-    <%# get the question flag to see if it should be in the report we assume this has 
-	  if this hasn't been initialized then show all of the questions.%>
-      <% if $reportQuestionFlags.objects.size > index
-			 otBool = $reportQuestionFlags.objects.get(index)
-			 next if (otBool && (!otBool.value))
-		 end
-		 reportIndex = index + 1
-      %> 
-
-      <% userAnswerHtml = basicQuestionAnswerHtml ( question[:object], user, false ) %>
-         
-      <% if $reportPrintTable.value %>
-		<tr BGCOLOR = <%= line_toggle ? ROWCOLOR1 : ROWCOLOR2 %>>
-		  <td style=<%= line_toggle ? "border:solid" : "border:none" %> >
-		 	<%= "#{reportIndex.to_s} #{sectionFor(question)}"  %></td>
-		  <td style=<%= line_toggle ? "border:solid" : "border:none" %> >
-			<%= userAnswerHtml %></td>
-		</tr> 
-		<% line_toggle = !line_toggle %>
-      <% else %>
-        <h3><%= " #{reportIndex.to_s}  #{sectionFor(question)}" %></h3>  
-        <%= userAnswerHtml %> 
-      <% end %>			 
-    <% end %>
-    
-    <% if $reportPrintTable.value %>      
-      </table>
-    <% end %>
-
+    <% question_list.each_with_index do |question, index| 
+    # get the question flag to see if it should be in the report we assume this has 
+    # if this hasn't been initialized then show all of the questions.
+        if $reportQuestionFlags.objects.size > index
+			    otBool = $reportQuestionFlags.objects.get(index)
+			    next if (otBool && (!otBool.value))
+		    end
+		    reportIndex = index + 1
+        userAnswerHtml = basicQuestionAnswerHtml ( question[:object], user, false ) 
+        if $reportPrintTable.value %>
+          <tr BGCOLOR = <%= line_toggle ? ROWCOLOR1 : ROWCOLOR2 %>>
+            <td style=<%= line_toggle ? "border:solid" : "border:none" %> >
+            <%= "#{reportIndex.to_s} #{sectionFor(question)}"  %></td>
+            <td style=<%= line_toggle ? "border:solid" : "border:none" %> >
+            <%= userAnswerHtml %></td>
+          </tr> 
+          <% line_toggle = !line_toggle %>
+        <% else %>
+              <div style="border: 2px solid #555555; margin-top: 1em; padding: 1em;">
+              <!-- h3>  <%= reportIndex.to_s %>    </h3 -->
+              <div><%= sectionFor(question)%> </div>  
+              <%= userAnswerHtml %> 
+              </div>
+        <% end %>			 
+      <% end %>
+          
+        <% if $reportPrintTable.value %>      
+          </table>
+        <% end %>
     </div>
   <% end %>        
 </div>
 
 <script language="JavaScript">
 <!--
-if (window.print) window.print();
+// if (window.print) window.print();
 //-->
 </script>
