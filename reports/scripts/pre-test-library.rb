@@ -157,7 +157,7 @@ def sectionFor(question)
 end
 
 def plainPromptText(question)
-  toPlainText(promptText(question))
+  toPlainText(question)
 end
 
 def toPlainText(obj)
@@ -180,25 +180,19 @@ end
 
 
 def activityQuestions
-  system  = @otrunk.system
-  if system.nil? 
-    puts "no system"
-    return []
+  questions = activityRoot.documentRefs.first.documentRefs
+  questions = questions.select do |i| 
+    i.kind_of? OTQuestion 
   end
-  library = system.library
-  if library.nil?
-    puts "no library"
-    return[]
+  puts "question size: #{questions.size}"
+  return questions.map do |q|
+    puts "question #{q.globalId}"
+    q.input.choices.each { |c| puts "puts choice #{c.globalId}" }
+    {
+      :object  => q,
+      :section => embedObject(q.prompt)  
+    }
   end
-
-  questions = library.vector.select { |i| i.type_of? org.concord.otrunk.ui.question.OTQuestion }
-  return questions
-#    { :local_id => resp[:local_id],
-#        :id => resp[:id],
-#        :object => found,
-#        :section => findSection(resp[:local_id])
-#      }
-
 end
 
 def findSection(local_id)
@@ -314,13 +308,24 @@ end
 def questionAnswer(question, user=nil, short=true)
   puts question
   type = getQuestionType(question)
+  answer = 'No Answer'
   case type
   when 'text'
-    answer = question.text.strip
+    answer = question.input.text.strip
     if (answer == nil || answer.length == 0)
-      answer = 'No Answer'
+      return answer
     elsif short
       answer = truncate(answer, 80)
+    end
+  when 'choice'
+    currentChoices = getCurrentChoices(question.input)
+    if currentChoices.size == 0
+      return answer
+    else
+      answer =""
+      currentChoices.each do |num, text|
+        answer << "#{text} <br/>"
+      end
     end
   else
     answer = embedUserObject(question,user)
@@ -367,8 +372,8 @@ end
 
 # this takes a userQuestion
 def questionAnswerHtml(question, user=nil, short=true)
-  correct = nil 
-  text = questionAnswer question, user, short
+  correct = questionCorrect(question)
+  text = questionAnswer(question, user, short)
   return text if correct == nil
   return "<font color=\"#ff0000\">#{text}</font>" unless correct
   return "<font color=\"#009900\">#{text}</font>"
@@ -530,9 +535,7 @@ def completionRatio(user)
   cnt = 0;
   activityQuestions.each do |aq|
     question = aq[:object]
-#    userQuestion = userObject(question, user)
-    cnt += 1 if @otrunk.hasUserModified(question,user)
-#    cnt += 1 if questionAnswer(userQuestion) != 'No Answer'
+    cnt += 1 if @otrunk.hasUserModified(question.input,user)
   end
   numQuestions = activityQuestions.length
   (numQuestions > 0 ? cnt.to_f / numQuestions : 1.0) * 100
