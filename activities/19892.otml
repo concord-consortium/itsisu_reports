@@ -293,7 +293,7 @@
 <!ENTITY diams    "&#9830;"> <!-- black diamond suit, U+2666 ISOpub -->
 ]>
 
-<otrunk id='e914d57c-8f8a-11df-acb8-001ec94098a1'>
+<otrunk id='c0ac4902-8f90-11df-8236-001ec94098a1'>
 <imports>
   <import class='org.concord.data.state.OTDataChannelDescription' />
   <import class='org.concord.data.state.OTDataField' />
@@ -381,7 +381,7 @@
   <bundles>
     <OTViewBundle currentMode='student' local_id='view_bundle' showLeftPanel='false'>
 <frame>
-<OTFrame height='700' title='Pre-test' useScrollPane='true' width='840'></OTFrame>
+<OTFrame height='700' title='Pre-Test' useScrollPane='true' width='840'></OTFrame>
 </frame>
 <modes>
 <OTViewMode name='student'></OTViewMode>
@@ -453,36 +453,36 @@
   </bundles>
 
 <root>
-<OTCompoundDoc name='Pre-test'>
+<OTCompoundDoc name='Pre-Test'>
 <bodyText>
-<object refid='${tab_content_page_19867}' />
+<object refid='${tab_content_page_19892}' />
 </bodyText>
 </OTCompoundDoc>
 
 </root>
 <library>
 <OTLabbook local_id='labbook' />
-<OTQuestion local_id='multiple_choice_1261'>
+<OTQuestion local_id='multiple_choice_1355'>
 <prompt>
 <OTCompoundDoc>
-<bodyText><p><img src="http://itsisu.concord.org/share/activityimages/activityimages_final/preposttestimages/msearthscience/sensoringauze.jpg" alt="" /></p>
-<p>1. Using this rapid response temperature senor, what would you expect would happen to the temperature measured by the senor, if the gauze was made wet with room temperature water, the air was very dry, and you had a fan blowing across it?</p></bodyText>
+<bodyText><p><img src="http://itsisu.concord.org/share/activityimages/activityimages_final/preposttestimages/msphysicalscience/solid.jpg" alt="" width="300" height="188" /></p>
+<p>1. What state of matter would this be if each object in the picture were an atom?</p></bodyText>
 </OTCompoundDoc>
 </prompt>
 <input>
 <OTChoice alignContent='0' name='Multiple choice'>
 <choices>
-<OTCompoundDoc name='1. a. The temperature would not change at all'>
-<bodyText>a. The temperature would not change at all</bodyText>
+<OTCompoundDoc name='1. a. solid'>
+<bodyText>a. solid</bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc name='2. b. The temperature would drop'>
-<bodyText>b. The temperature would drop</bodyText>
+<OTCompoundDoc name='2. b. liquid'>
+<bodyText>b. liquid</bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc name='3. c. The temperature would increase'>
-<bodyText>c. The temperature would increase</bodyText>
+<OTCompoundDoc name='3. c. gas'>
+<bodyText>c. gas</bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc name='4. d. The temperature would increase and then drop'>
-<bodyText>d. The temperature would increase and then drop</bodyText>
+<OTCompoundDoc name='4. d. plasma'>
+<bodyText>d. plasma</bodyText>
 </OTCompoundDoc>
 </choices>
 </OTChoice>
@@ -490,26 +490,27 @@
 </OTQuestion>
 
 
-<OTQuestion local_id='multiple_choice_1262'>
+<OTQuestion local_id='multiple_choice_1356'>
 <prompt>
 <OTCompoundDoc>
-<bodyText><p>2. If it was raining, the relative humidity of the air outside would be closer to what percent?</p></bodyText>
+<bodyText><p><img src="http://itsisu.concord.org/share/activityimages/activityimages_final/preposttestimages/msphysicalscience/liquid.jpg" alt="" width="300" height="188" /></p>
+<p>2. What state of matter would this be if each object in the picture were an atom?</p></bodyText>
 </OTCompoundDoc>
 </prompt>
 <input>
 <OTChoice alignContent='0' name='Multiple choice'>
 <choices>
-<OTCompoundDoc name='1. a. 5%'>
-<bodyText>a. 5%</bodyText>
+<OTCompoundDoc name='1. a. solid'>
+<bodyText>a. solid</bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc name='2. b. 30%'>
-<bodyText>b. 30%</bodyText>
+<OTCompoundDoc name='2. b. liquid'>
+<bodyText>b. liquid</bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc name='3. c. 75%'>
-<bodyText>c. 75%</bodyText>
+<OTCompoundDoc name='3. c. gas'>
+<bodyText>c. gas</bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc name='4. d. 95%'>
-<bodyText>d. 95%</bodyText>
+<OTCompoundDoc name='4. d. plasma'>
+<bodyText>d. plasma</bodyText>
 </OTCompoundDoc>
 </choices>
 </OTChoice>
@@ -517,27 +518,27 @@
 </OTQuestion>
 
 
-<OTQuestion local_id='multiple_choice_1263'>
+<OTQuestion local_id='multiple_choice_1357'>
 <prompt>
 <OTCompoundDoc>
-<bodyText><p><img src="http://itsisu.concord.org/share/activityimages/activityimages_final/preposttestimages/msearthscience/tempgraphs.jpg" alt="" /></p>
-<p>3. Using the above Temperature Sensor Graph, which line best describes what would happen to the temperature of a temperature sensor if the air was dry and the sensor was dipped in warm water and allowed to dry in front of a fan?</p></bodyText>
+<bodyText><p><img src="http://itsisu.concord.org/share/activityimages/activityimages_final/preposttestimages/msphysicalscience/phasechangegraph.jpg" alt="" width="400" height="253" /></p>
+<p>3. At what temperature did the above material begin to change state from a solid to a liquid?</p></bodyText>
 </OTCompoundDoc>
 </prompt>
 <input>
 <OTChoice alignContent='0' name='Multiple choice'>
 <choices>
-<OTCompoundDoc name='1. A'>
-<bodyText>A</bodyText>
+<OTCompoundDoc name='1.  a.  0 degrees K'>
+<bodyText> a.  0 degrees K</bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc name='2. B'>
-<bodyText>B</bodyText>
+<OTCompoundDoc name='2. b.   .5 degrees K'>
+<bodyText>b.   .5 degrees K</bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc name='3. C'>
-<bodyText>C</bodyText>
+<OTCompoundDoc name='3. c.    1.2 degrees K'>
+<bodyText>c.    1.2 degrees K</bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc name='4. D'>
-<bodyText>D</bodyText>
+<OTCompoundDoc name='4.  d.   1.6 degrees K'>
+<bodyText> d.   1.6 degrees K</bodyText>
 </OTCompoundDoc>
 </choices>
 </OTChoice>
@@ -545,28 +546,38 @@
 </OTQuestion>
 
 
-<OTQuestion local_id='multiple_choice_1264'>
+<OTQuestion local_id='multiple_choice_1358'>
 <prompt>
 <OTCompoundDoc>
-<bodyText><p> </p>
-<p><img src="http://itsisu.concord.org/share/activityimages/activityimages_final/preposttestimages/msearthscience/tempgraphs.jpg" alt="" width="467" height="290" /></p>
-<p>4. Using the above Temperature Sensor Graph, which line best describes what would happen to the temperature of a temperature sensor if the air was very humid and the sensor was dipped in warm water and allowed to dry in still air?</p></bodyText>
+<bodyText><p>4. A pan of water containing a large ice cube is placed over a hot flame and the water is stirred constantly. At what point will the temperature of the water rise?</p></bodyText>
 </OTCompoundDoc>
 </prompt>
 <input>
 <OTChoice alignContent='0' name='Multiple choice'>
 <choices>
-<OTCompoundDoc name='1. A'>
-<bodyText>A</bodyText>
+<OTCompoundDoc name='1.  a.  as soon as the pan is over the flame'>
+<bodyText> a.  as soon as the pan is over the flame</bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc name='2. B'>
-<bodyText>B</bodyText>
+<OTCompoundDoc name='2. b.   as soon as the ice begins to melt'>
+<bodyText>b.   as soon as the ice begins to melt</bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc name='3. C'>
-<bodyText>C</bodyText>
+<OTCompoundDoc name='3. c.    after all the ice melts'>
+<bodyText>c.    after all the ice melts</bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc name='4. D'>
-<bodyText>D</bodyText>
+<OTCompoundDoc name='4.  d.   when the water begins to boil'>
+<bodyText> d.   when the water begins to boil</bodyText>
+</OTCompoundDoc>
+<OTCompoundDoc name='5.  a.  as soon as the pan is over the flame'>
+<bodyText> a.  as soon as the pan is over the flame</bodyText>
+</OTCompoundDoc>
+<OTCompoundDoc name='6. b.   as soon as the ice begins to melt'>
+<bodyText>b.   as soon as the ice begins to melt</bodyText>
+</OTCompoundDoc>
+<OTCompoundDoc name='7. c.    after all the ice melts'>
+<bodyText>c.    after all the ice melts</bodyText>
+</OTCompoundDoc>
+<OTCompoundDoc name='8.  d.   when the water begins to boil'>
+<bodyText> d.   when the water begins to boil</bodyText>
 </OTCompoundDoc>
 </choices>
 </OTChoice>
@@ -574,28 +585,26 @@
 </OTQuestion>
 
 
-<OTQuestion local_id='multiple_choice_1265'>
+<OTQuestion local_id='multiple_choice_1359'>
 <prompt>
 <OTCompoundDoc>
-<bodyText><p><img src="http://itsisu.concord.org/share/activityimages/activityimages_final/preposttestimages/msearthscience/waterdensitycalculator.jpg" alt="" /></p>
-<p> </p>
-<p>5. At 30&deg;C, the density of water in the air was measured at 20 g/m3. Using the Water density calculator above, calculate the relative humidity.</p></bodyText>
+<bodyText><p>5. What state of matter has the weakest attraction between atoms?</p></bodyText>
 </OTCompoundDoc>
 </prompt>
 <input>
 <OTChoice alignContent='0' name='Multiple choice'>
 <choices>
-<OTCompoundDoc name='1. a. 20%'>
-<bodyText>a. 20%</bodyText>
+<OTCompoundDoc name='1. a. solid'>
+<bodyText>a. solid</bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc name='2. b. 30%'>
-<bodyText>b. 30%</bodyText>
+<OTCompoundDoc name='2. b. liquid'>
+<bodyText>b. liquid</bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc name='3. c. 65%'>
-<bodyText>c. 65%</bodyText>
+<OTCompoundDoc name='3. c. gas'>
+<bodyText>c. gas</bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc name='4. d. 100%'>
-<bodyText>d. 100%</bodyText>
+<OTCompoundDoc name='4. d. They all have the same attraction no matter what state.'>
+<bodyText>d. They all have the same attraction no matter what state.</bodyText>
 </OTCompoundDoc>
 </choices>
 </OTChoice>
@@ -603,56 +612,87 @@
 </OTQuestion>
 
 
-<OTCompoundDoc local_id='tab_content_page_19867' name='Pre-test'>
+<OTQuestion local_id='multiple_choice_1360'>
+<prompt>
+<OTCompoundDoc>
+<bodyText><p>6. Ice can be added to water to cool it down. Why is ice for this purpose than just adding the same mass of water at 0&deg;C?</p></bodyText>
+</OTCompoundDoc>
+</prompt>
+<input>
+<OTChoice alignContent='0' name='Multiple choice'>
+<choices>
+<OTCompoundDoc name='1. a. Ice is denser than water.'>
+<bodyText>a. Ice is denser than water.</bodyText>
+</OTCompoundDoc>
+<OTCompoundDoc name='2. b. It take energy to melt ice.'>
+<bodyText>b. It take energy to melt ice.</bodyText>
+</OTCompoundDoc>
+<OTCompoundDoc name='3. c. Ice is colder than water at 0°C.'>
+<bodyText>c. Ice is colder than water at 0°C.</bodyText>
+</OTCompoundDoc>
+<OTCompoundDoc name='4. d. Water in its liquid state has stronger bonds than ice.'>
+<bodyText>d. Water in its liquid state has stronger bonds than ice.</bodyText>
+</OTCompoundDoc>
+</choices>
+</OTChoice>
+</input>
+</OTQuestion>
+
+
+<OTCompoundDoc local_id='tab_content_page_19892' name='Pre-Test'>
 <bodyText>
 <div id='content'>
 <table width='100%'>
 <tr>
 <td align='left'>
-<h1>Water Cycle</h1>
+<h1>Phase Change</h1>
 </td>
 <td align='right'>
-<h2>Pre-test</h2>
+<h2>Pre-Test</h2>
 </td>
 </tr>
 </table>
 <div class='element'>
 
-<object refid='${multiple_choice_1261}' />
+<object refid='${multiple_choice_1355}' />
 </div>
 <div class='element'>
 
-<object refid='${multiple_choice_1262}' />
+<object refid='${multiple_choice_1356}' />
 </div>
 <div class='element'>
 
-<object refid='${multiple_choice_1263}' />
+<object refid='${multiple_choice_1357}' />
 </div>
 <div class='element'>
 
-<object refid='${multiple_choice_1264}' />
+<object refid='${multiple_choice_1358}' />
 </div>
 <div class='element'>
 
-<object refid='${multiple_choice_1265}' />
+<object refid='${multiple_choice_1359}' />
+</div>
+<div class='element'>
+
+<object refid='${multiple_choice_1360}' />
 </div>
 </div>
 </bodyText>
 </OTCompoundDoc>
-<OTCompoundDoc local_id='teacher_notes_page_19867'>
+<OTCompoundDoc local_id='teacher_notes_page_19892'>
 <bodyText>
 <br />
 <table class='teacher_mode' valign='top' width='90%'>
 </table>
 </bodyText>
 </OTCompoundDoc>
-<OTTabContainer local_id='tab_container_page_19867' name='Pre-test'>
+<OTTabContainer local_id='tab_container_page_19892' name='Pre-Test'>
 <tabs>
-<entry key='Pre-test'>
-<object refid='${tab_content_page_19867}' />
+<entry key='Pre-Test'>
+<object refid='${tab_content_page_19892}' />
 </entry>
 <entry key='Teacher notes'>
-<object refid='${teacher_notes_page_19867}' />
+<object refid='${teacher_notes_page_19892}' />
 </entry>
 </tabs>
 </OTTabContainer>
