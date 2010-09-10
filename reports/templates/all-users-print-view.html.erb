@@ -34,7 +34,7 @@
 			    next if (otBool && (!otBool.value))
 		    end
 		    reportIndex = index + 1
-        userAnswerHtml = basicQuestionAnswerHtml ( question[:object], user, false ) 
+        userAnswerHtml = basicQuestionAnswerHtml(question[:object], user, false) 
         if $reportPrintTable.value %>
           <tr BGCOLOR = <%= line_toggle ? ROWCOLOR1 : ROWCOLOR2 %>>
             <td style=<%= line_toggle ? "border:solid" : "border:none" %> >
