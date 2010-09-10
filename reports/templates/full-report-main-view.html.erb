@@ -27,11 +27,11 @@
   <% questions = activityQuestions() %>
   <% table_size = (questions.size + 2) * 200 %>
     <table width="<%=table_size%>" style="width: <%=table_size%>px;">
-      <tr>
+      <tr valign="top">
         <th>User</th>
         <% questions.each_with_index do |question,index| %>
           <% reportIndex = index +1 %>
-          <th>
+          <th align='left' style='text-align: left;'>
             <%= question[:section] %>
             <!-- %= popupLinkToObject reportIndex.to_s()+". "+truncate(sectionFor(question) || "huh?", 30), question, $questionView % -->
           </th>  
@@ -54,7 +54,7 @@
       <tr>
        <th>Report</th>
        <% questions.each_with_index do |question,index| %>
-         <td style="text-align: center">
+         <td align="left" style="text-align: left;">
            <%
              otBool = nil
              if $reportQuestionFlags.objects.size <= index
