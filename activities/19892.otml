@@ -462,6 +462,8 @@
 </root>
 <library>
 <OTLabbook local_id='labbook' />
+
+
 <OTQuestion local_id='multiple_choice_1355'>
 <prompt>
 <OTCompoundDoc>
@@ -472,9 +474,9 @@
 <input>
 <OTChoice alignContent='0' name='Multiple choice'>
 <choices>
-<OTCompoundDoc name='1. a. solid'>
-<bodyText>a. solid</bodyText>
-</OTCompoundDoc>
+	<OTCompoundDoc name='1. a. solid'>
+		<bodyText>a. solid</bodyText>
+	</OTCompoundDoc>
 <OTCompoundDoc name='2. b. liquid'>
 <bodyText>b. liquid</bodyText>
 </OTCompoundDoc>
@@ -487,6 +489,9 @@
 </choices>
 </OTChoice>
 </input>
+<correctAnswer>
+	<object refid="c0ac4902-8f90-11df-8236-001ec94098a1!/multiple_choice_1355/input/choices[0]"/>
+</correctAnswer>
 </OTQuestion>
 
 
@@ -548,6 +553,7 @@
 
 <OTQuestion local_id='multiple_choice_1358'>
 <prompt>
+
 <OTCompoundDoc>
 <bodyText><p>4. A pan of water containing a large ice cube is placed over a hot flame and the water is stirred constantly. At what point will the temperature of the water rise?</p></bodyText>
 </OTCompoundDoc>
