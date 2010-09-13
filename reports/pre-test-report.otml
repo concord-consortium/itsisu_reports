@@ -83,7 +83,7 @@
             <OTIncludeRootObject local_id="external_user_list_url" href="http://itsisu.diy.concord.org/external_otrunk_activities/36/ot_learner_data" />
           </userList>
           <reportTemplate>
-            <OTIncludeRootObject local_id="pretest_url" href="../activities/19892.otml" />
+            <OTIncludeRootObject local_id="diy_activity_url" href="../activities/19892.otml" />
           </reportTemplate>
         </OTMultiUserRoot>
       </root>
