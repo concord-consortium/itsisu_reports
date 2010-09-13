@@ -203,15 +203,16 @@ end
 
 def findSection(local_id)
   
-  intro_s      = "introduction"
-  career_s     = "career stem"
-  proced_s     = "procedure"
-  prediction_s = "prediction"
-  collect1_s   = "collect (1)"
-  collect2_s   = "collect (2)"
-  collect3_s   = "collect (3)"
+  intro_s      = "Introduction"
+  career_s     = "Career STEM"
+  proced_s     = "Procedure"
+  prediction_s = "Prediction"
+  collect1_s   = "Collect (1)"
+  collect2_s   = "Collect (2)"
+  collect3_s   = "Collect (3)"
   analysis_s   = "Analysis"
   conclusion_s = "Conclusion"
+  career2_s    = "Second career STEM"
   further_s    = "Further Inv."
   
   map = {
@@ -245,6 +246,7 @@ def findSection(local_id)
     
     "to_id_3"      => conclusion_s,
     "draw_id_9"    => conclusion_s,
+    "to_id_career_2" => career2_s, 
     
     "dc_id_4"      => further_s,
     "to_id_7"      => further_s,
