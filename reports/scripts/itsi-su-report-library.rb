@@ -198,6 +198,7 @@ def activityQuestions
       nil
     end
   end
+  responses.reject! { |r| r[:section].nil? }
   responses.compact!
   return responses
 end
