@@ -16,6 +16,7 @@ include_class 'org.concord.otrunk.ui.OTText'
 include_class 'org.concord.otrunk.ui.question.OTQuestion'
 include_class 'org.concord.graph.util.state.OTDrawingTool'
 include_class 'org.concord.datagraph.state.OTDataCollector'
+include_class 'org.concord.otrunk.ui.snapshot.OTSnapshotAlbum'
 
 ROWCOLOR1 = "#FFFEE9"
 ROWCOLOR2 = "#FFFFFF"
@@ -322,6 +323,11 @@ def questionAnswer(question, user=nil, short=true)
     elsif short
       answer = truncate(answer, 80)
     end
+  when 'album'
+    # TODO: Figure out what to do with snapshots
+    # answer = embedUserObject(question,user)
+  when 'unknown'
+    # do nothing
   else
     answer = embedUserObject(question,user)
   end
@@ -475,6 +481,9 @@ def getQuestionType(question)
     return 'drawing'
   elsif input.is_a?(OTDataCollector)
     return 'datagraph'
+  elsif input.is_a?(OTSnapshotAlbum)
+    return 'album'
+  else return "unknown"
   end
  
   return question
