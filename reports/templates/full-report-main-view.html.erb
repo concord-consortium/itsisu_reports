@@ -11,11 +11,13 @@
   Teacher: <%= sysProp("report.teacher.name", "Undefined Teacher Name") %><br/>
   Class: <%= sysProp("report.class.name", "Undefined Class Name") %><br/>
 
+  <% unless $hideMinCompletion %>
   <p>
     Show students who completed at least
     <%= embedObject($minCompletionText) %>%
     <%= embedObject($filterButton) %>
   </p>
+  <% end %>
   
   <p>
     <%= embedObject $allUsersPrintButton %>

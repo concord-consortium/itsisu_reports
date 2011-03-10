@@ -173,6 +173,11 @@
                 <object refid="${min_completion_text}" />
               </reference>
             </OTScriptVariable>
+            <OTScriptVariable name="hideMinCompletion">
+              <reference>
+                <OTBoolean value="true" />
+              </reference>
+            </OTScriptVariable>
             <OTScriptVariable name="reportQuestionFlags">
               <reference>
                 <OTObjectSet>
@@ -297,7 +302,7 @@
           </variables>
         </OTXHTMLScriptViewEntry>
         <OTBoolean local_id="true" value="true" />
-        <OTText local_id="min_completion_text" columns="3" fontSize="12" text="1" />
+        <OTText local_id="min_completion_text" columns="3" fontSize="12" text="0" />
         <OTJRuby local_id="pdf_button_script" src="scripts/save-as-pdf.rb" />
         <OTJRuby local_id="filter_button_script" src="scripts/filter-button.rb" />
       </library>
