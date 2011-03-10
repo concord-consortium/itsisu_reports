@@ -389,7 +389,11 @@ def questionAnswerText(question, user=nil, short=true)
 end
 
 def isChoiceQuestion(question)
-  return question.is_a? org.concord.otrunk.ui.OTChoice
+  if question.is_a? org.concord.otrunk.ui.question.OTQuestion
+    return question.input.is_a? org.concord.otrunk.ui.OTChoice
+  else
+    return question.is_a? org.concord.otrunk.ui.OTChoice
+  end
 end
 
 def linkToMainReport(link_text)

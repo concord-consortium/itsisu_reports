@@ -39,7 +39,7 @@
   <% filteredUsers.each do |user| %>
     <tr bgcolor="<%= toggle.next %>">
       <td><%= user.name %></td>
-      <td><%= questionAnswerHtmlWithCopySearch(question, user, false) %></td>
+      <td><%= basicQuestionAnswerHtml(question, user, false) %></td>
     </tr>
   <% end %>
 </table>

@@ -30,7 +30,7 @@
   <% table_size = (questions.size + 2) * 200 %>
     <table width="<%=table_size%>" style="width: <%=table_size%>px;">
       <tr valign="top">
-        <th>User</th>
+        <th></th>
         <% questions.each_with_index do |question,index| %>
           <% reportIndex = index +1 %>
           <th align='left' style='text-align: left;'>
@@ -38,16 +38,16 @@
             <!-- %= popupLinkToObject reportIndex.to_s()+". "+truncate(sectionFor(question) || "huh?", 30), question, $questionView % -->
           </th>  
         <% end %>
-        <th>User</th>
+        <th></th>
       </tr>
       <tr valign="top">
-        <td></td>
+        <th>Percent Correct</th>
         <% questions.each do |question| %>
           <td>
             <nobr>
-              <%= popupLinkToObject '<img src="images/chart-bar.png" border="0" hspace="4"/>', question, $questionReportView %>
-              <% if isChoiceQuestion(question) %>
-                <%= '%.0f' % correctUsersPercent(question, filteredUsers) %>%
+              <%= popupLinkToObject '<img src="images/chart-bar.png" border="0" hspace="4"/>', question[:object], $questionReportView %>
+              <% if isChoiceQuestion(question[:object]) %>
+                <%= '%.0f' % correctUsersPercent(question[:object], filteredUsers) %>%
               <% end %>
             </nobr>
           </td>
@@ -78,7 +78,12 @@
           <% line_toggle = !line_toggle %>
           <td valign="top"><%= linkToObject user.name, user, $userQuestionView %><br/>
               <%= otherUserList(user) %><br/>
-              <%= '%.0f' % completionRatio(user) %>%
+              <% if respond_to? 'correctAnswersPercent' %>
+              <%= '%.0f' % correctAnswersPercent(user) %>% correct
+              <% end %>
+              <% unless $hideMinCompletion %>
+              <%= '%.0f' % completionRatio(user) %>% complete
+              <% end %>
           </td>
           <% questions.each do |question| %>
             <td valign="top">

@@ -139,11 +139,11 @@ def popupFrame
 end
 
 def popupLinkToObject(link_text, obj, viewEntry=nil, user=nil)
-#  frame = popupFrame
-#  link = "<a href=\"#{ obj.otExternalId() }\" "
-#  link += "viewid=\"#{ viewEntry.otExternalId() }\" "  if viewEntry
-#  link += "user=\"#{ user.otExternalId() }\" "  if user
-#  link += " target=\"#{ popupFrame.otExternalId }\">#{link_text}</a>"  
+  frame = popupFrame
+  link = "<a href=\"#{ obj.otExternalId() }\" "
+  link += "viewid=\"#{ viewEntry.otExternalId() }\" "  if viewEntry
+  link += "user=\"#{ user.otExternalId() }\" "  if user
+  link += " target=\"#{ popupFrame.otExternalId }\">#{link_text}</a>"  
 end
 
 
@@ -377,7 +377,7 @@ def questionAnswerText(question, user=nil, short=true)
 end
 
 def isChoiceQuestion(question)
-  return question.is_a? org.concord.otrunk.ui.OTChoice
+  return question.input and question.input.is_a? org.concord.otrunk.ui.OTChoice
 end
 
 def linkToMainReport(link_text)
@@ -527,6 +527,21 @@ def completionRatio(user)
   (numQuestions > 0 ? cnt.to_f / numQuestions : 1.0) * 100
 end
 
+## How many of the questions the user got right
+def correctAnswersPercent(user)
+  correct = 0
+  possible = 0
+  activityQuestions.each do |aq|
+    question = aq[:object]
+    # currently score is nil, true, false
+    # nil means unknown
+    score = questionCorrect(userObject(question, user))
+    correct += 1 if score
+    possible += 1 unless score.nil?
+  end
+  (possible > 0 ? correct.to_f / possible : 1.0) * 100
+end
+
 ## image: an OTImage
 def getImageBlobUrl(image)
   url = ''
@@ -554,14 +569,17 @@ end
 
 def multipleChoiceUsersBarGraph(question, users)
   correctAnswers = correctAnswers(question)
-  data = [0] * question.input.choices.length
+  # add 1 for 'No Answer'
+  numAnswers = question.input.choices.length + 1
+  data = [0] * numAnswers
   if correctAnswers.empty?
-    colors = ['0044dd'] * question.input.choices.length
+    colors = ['0044dd'] * numAnswers
   else
     colors = []
     question.input.choices.each_with_index do |choice, i|
       colors[i] = correctAnswers.include?(choice) ? '00cc44' : 'ff4400'
     end
+    colors << 'ff4400'
   end
   users.each do |user|
     userQuestion = userObject(question, user)
@@ -570,8 +588,9 @@ def multipleChoiceUsersBarGraph(question, users)
       num = choice[0]
       data[num] += 1
     end
+    data[-1] += 1 if choices.empty?
   end
-  xLabels = (1..data.length).to_a.join('|')
+  xLabels = ((1..question.input.choices.length).to_a << 'NA').join('|')
   colors = colors.join('|')
   googleBarGraph(data, xLabels, colors)
 end
