@@ -78,7 +78,7 @@
           <% line_toggle = !line_toggle %>
           <td valign="top"><%= linkToObject user.name, user, $userQuestionView %><br/>
               <%= otherUserList(user) %><br/>
-              <% if respond_to? 'correctAnswersPercent' %>
+              <% if Object.respond_to?(:correctAnswersPercent, true) %>
               <%= '%.0f' % correctAnswersPercent(user) %>% correct
               <% end %>
               <% unless $hideMinCompletion %>
