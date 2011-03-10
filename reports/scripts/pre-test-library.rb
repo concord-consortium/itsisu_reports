@@ -481,7 +481,7 @@ end
 def getChoiceNum(chooser, choice)
   num = -1
   chooser.getChoices.each_with_index do |option, i|
-    if option.otExternalId == choice.otExternalId
+    if choice and option.otExternalId == choice.otExternalId
       num = i
       break
     end
